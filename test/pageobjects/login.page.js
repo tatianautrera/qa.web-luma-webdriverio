@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Page from './basePage.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -8,16 +8,8 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () {
-        return $('#username');
-    }
-
-    get inputPassword () {
-        return $('#password');
-    }
-
-    get btnSubmit () {
-        return $('button[type="submit"]');
+    get linkRegisterPage () {
+        return $('a[data-testid="cadastrar"]');
     }
 
     /**
@@ -34,7 +26,11 @@ class LoginPage extends Page {
      * overwrite specific options to adapt it to page object
      */
     open () {
-        return super.open('login');
+        return super.open('/login');
+    }
+
+    async accessRegisterPage () {
+        await this.linkRegisterPage.click()
     }
 }
 
