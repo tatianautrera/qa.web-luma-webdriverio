@@ -21,6 +21,10 @@ class RegisterUserPage extends Page {
         return $('input[data-testid="password"]');
     }
 
+    get inputCheckbox () {
+        return $('input[data-testid="checkbox"]');
+    }
+
     get btnSubmit () {
         return $('button[type="submit"]');
     }
@@ -29,10 +33,12 @@ class RegisterUserPage extends Page {
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async registerUser (name, email, password) {
-        await this.inputName.setValue(name);
-        await this.inputEmail.setValue(email);
-        await this.inputPassword.setValue(password);
+    async registerUser (user) {
+        await this.inputName.setValue(user.name);
+        await this.inputEmail.setValue(user.email);
+        await this.inputPassword.setValue(user.password);
+        if(user.administrator == true)
+            await this.inputCheckbox.click();
         await this.btnSubmit.click();
     }
 

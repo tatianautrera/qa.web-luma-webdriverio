@@ -1,0 +1,25 @@
+{
+    "InputWithOutFields": [
+        {
+            "name": "",
+            "email": "teste@teste.com",
+            "password": "123456",
+            "administrator": true,
+            "message":"Nome é obrigatório"
+        },
+        {
+            "name": "teste",
+            "email": "",
+            "password": "123456",
+            "administrator": true,
+            "message":"Email é obrigatório"
+        },
+        {
+            "name": "teste",
+            "email": "teste@teste.com",
+            "password": "",
+            "administrator": true,
+            "message":"Password é obrigatório"
+        }
+]
+}

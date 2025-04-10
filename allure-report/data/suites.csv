@@ -1,2 +1,7 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","7250","should create a new user with success","","Tue Apr 08 22:13:32 BRT 2025","passed","Tue Apr 08 22:13:39 BRT 2025","","Cadastro de usuarios","",""
+"","5808","should create a new administrator user with success","","Tue Apr 08 23:43:26 BRT 2025","passed","Tue Apr 08 23:43:32 BRT 2025","","Cadastro de usuarios","",""
+"","27044","should return erro without filed name","","Wed Apr 09 21:43:20 BRT 2025","passed","Wed Apr 09 21:43:47 BRT 2025","","Cadastro de usuarios","",""
+"","6535","should create a new user with success","","Tue Apr 08 23:43:19 BRT 2025","passed","Tue Apr 08 23:43:26 BRT 2025","","Cadastro de usuarios","",""
+"","2948","should return erro invalid email","","Wed Apr 09 22:03:48 BRT 2025","passed","Wed Apr 09 22:03:51 BRT 2025","","Cadastro de usuarios","",""
+"","6848","should create a new user with success","","Wed Apr 09 20:18:18 BRT 2025","passed","Wed Apr 09 20:18:25 BRT 2025","","Cadastro de usuarios","",""
+"","8935","should create a new administrator user with success","","Wed Apr 09 20:59:29 BRT 2025","passed","Wed Apr 09 20:59:38 BRT 2025","","Cadastro de usuarios","",""
