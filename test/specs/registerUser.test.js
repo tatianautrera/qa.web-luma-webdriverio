@@ -8,10 +8,10 @@ import users from '../data/createUser.json'
 import registerUserPage from '../pageobjects/registerUser.page.js'
 
 describe('Cadastro de usuarios', () => {
-
     beforeEach(async () => {
         await RegisterUserPage.accessRegisterPage()
     })
+
     it('should create a new user with success', async () => {
         var user = {
             name: faker.name.firstName(),
@@ -24,7 +24,7 @@ describe('Cadastro de usuarios', () => {
         await expect(HomePage.linkReport).toBeDisabled
     })
 
-    it('should create a new administrator user with success', async () => {
+    it.only('should create a new administrator user with success', async () => {
         var user = {
             name: faker.name.firstName(),
             email: "teste" + faker.internet.email(),
@@ -34,6 +34,7 @@ describe('Cadastro de usuarios', () => {
         await RegisterUserPage.registerUser(user)
         await expect(HomePage.btnLogout).toBeDisplayed()
         await expect(HomePage.linkReport).toBeDisplayed()
+        await expect($('h1')).toHaveText(expect.stringContaining(user.name))
     })
 
     it('should return erro without required fields', async () => {
