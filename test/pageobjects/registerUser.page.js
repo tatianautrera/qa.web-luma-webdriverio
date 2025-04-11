@@ -9,23 +9,23 @@ class RegisterUserPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputName () {
+    get inputName() {
         return $('input[data-testid="nome"]');
     }
 
-    get inputEmail () {
+    get inputEmail() {
         return $('input[data-testid="email"]');
     }
 
-    get inputPassword () {
+    get inputPassword() {
         return $('input[data-testid="password"]');
     }
 
-    get inputCheckbox () {
+    get inputCheckbox() {
         return $('input[data-testid="checkbox"]');
     }
 
-    get btnSubmit () {
+    get btnSubmit() {
         return $('button[type="submit"]');
     }
 
@@ -33,11 +33,11 @@ class RegisterUserPage extends Page {
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async registerUser (user) {
+    async registerUser(user) {
         await this.inputName.setValue(user.name);
         await this.inputEmail.setValue(user.email);
         await this.inputPassword.setValue(user.password);
-        if(user.administrator == true)
+        if (user.administrator == true)
             await this.inputCheckbox.click();
         await this.btnSubmit.click();
     }
@@ -45,14 +45,14 @@ class RegisterUserPage extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    async open () {
+    async open() {
         return super.open('/login');
-        
+
     }
 
-    async accessRegisterPage () {
+    async accessRegisterPage() {
         await this.open()
-        await LoginPage.accessRegisterPage()
+        await LoginPage.linkRegisterPage.click()
     }
 }
 

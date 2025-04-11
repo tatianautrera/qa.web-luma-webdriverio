@@ -21,10 +21,10 @@ describe('Cadastro de usuarios', () => {
         }
         await RegisterUserPage.registerUser(user)
         await expect(HomePage.btnLogout).toBeDisplayed()
-        await expect(HomePage.linkReport).toBeDisabled
+        await expect(HomePage.linkReport).not.toBeDisplayed()
     })
 
-    it.only('should create a new administrator user with success', async () => {
+    it('should create a new administrator user with success', async () => {
         var user = {
             name: faker.name.firstName(),
             email: "teste" + faker.internet.email(),
@@ -34,7 +34,7 @@ describe('Cadastro de usuarios', () => {
         await RegisterUserPage.registerUser(user)
         await expect(HomePage.btnLogout).toBeDisplayed()
         await expect(HomePage.linkReport).toBeDisplayed()
-        await expect($('h1')).toHaveText(expect.stringContaining(user.name))
+        await expect(HomePage.txtUserName).toHaveText(expect.stringContaining(user.name))
     })
 
     it('should return erro without required fields', async () => {

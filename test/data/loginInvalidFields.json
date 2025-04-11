@@ -1,0 +1,19 @@
+{
+    "loginInvalidFields": [
+        {
+            "email": "teste@teste.com",
+            "password": "",
+            "message":"Password é obrigatório"
+        },
+        {
+            "email": "",
+            "password": "123456",
+            "message":"Email é obrigatório"
+        },
+        {
+            "email": "fdfffsfs@teste.com",
+            "password": "123456",
+            "message":"Email e/ou senha inválidos"
+        }
+]
+}

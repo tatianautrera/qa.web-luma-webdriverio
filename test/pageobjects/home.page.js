@@ -20,6 +20,9 @@ class HomePage extends Page {
         return $('.alert-dismissible span:nth-child(2)');
     }
 
+    get txtUserName () {
+        return $('h1');
+    }
 }
 
 export default new HomePage();
