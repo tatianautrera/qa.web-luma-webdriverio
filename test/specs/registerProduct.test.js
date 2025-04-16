@@ -4,6 +4,7 @@ import RegisterUserPage from '../pageobjects/registerUser.page.js'
 import faker from 'faker-br'
 import allureReporter from '@wdio/allure-reporter'
 import RegisterProductPage from '../pageobjects/registerProduct.page.js'
+import LoginPage from '../pageobjects/login.page.js'
 import data from '../data/productInvalidFields.json'
 
 describe('Cadastro de usuarios', () => {
@@ -17,10 +18,12 @@ describe('Cadastro de usuarios', () => {
             administrator: true
         }
         await RegisterUserPage.registerUser(user)
+        await HomePage.accessRegisterProductPageByMenu()
     })
 
+    describe('Dado que esteja acesando a tela de cadastro de produtos',()=>{
     beforeEach(async () => {
-        await HomePage.accessRegisterProductPage()
+        await browser.url('/admin/cadastrarprodutos')
     })
 
     it('should create a new product with success', async () => {
@@ -33,7 +36,7 @@ describe('Cadastro de usuarios', () => {
         }
 
         await RegisterProductPage.registerProduct(product)
-        await RegisterProductPage.assertPage('Lista dos Produtos')
+        await RegisterProductPage.assertTex(RegisterProductPage.titlePage,'Lista dos Produtos')
     })
 
     it('should create a new product and consult register with success', async () => {
@@ -51,7 +54,7 @@ describe('Cadastro de usuarios', () => {
     it('should error invalid fields', async () => {
         for (let i = 0; i < data.productInvalidFields.length; i++) {
             await RegisterProductPage.registerProduct(data.productInvalidFields[i])
-            await RegisterProductPage.assertMessageError(data.productInvalidFields[i].message)
+            await RegisterProductPage.assertTex(RegisterProductPage.messageError, data.productInvalidFields[i].message)
             await HomePage.accessRegisterProductPage()
         }
     })
@@ -67,6 +70,7 @@ describe('Cadastro de usuarios', () => {
             await RegisterProductPage.registerProduct(product)
             await HomePage.accessRegisterProductPage()
             await RegisterProductPage.registerProduct(product)
-            await RegisterProductPage.assertMessageError("Já existe produto com esse nome")       
+            await RegisterProductPage.assertTex(RegisterProductPage.messageError,"Já existe produto com esse nome")       
     })
+})
 })

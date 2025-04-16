@@ -56,16 +56,8 @@ class RegisterProductPage extends Page {
         await this.btnSubmit.click();
     }
 
-    async assertPage(message){
-        await expect(this.titlePage).toHaveText(message)
-    }
-
     async assertSearchProduct(name){
         await expect(await this.searchProduct(name)).toBeDisplayed()
-    }
-
-    async assertMessageError(message){
-        await expect(this.messageError).toHaveText(message)
     }
 }
 

@@ -12,4 +12,20 @@ export default class Page {
     open (path) {
         return browser.url(`${path}`)
     }
+
+    async assertTex(selector, message){
+        await expect(selector).toHaveText(message)
+    }
+
+    async assertContainsText(selector, message){
+         await expect(selector).toHaveText(expect.stringContaining(message))
+    }
+
+    async assertToBeDisplayed(selector){
+        await expect(selector).toBeDisplayed()
+    }
+
+    async assertNotToBeDisplayed(selector){
+        await expect(selector).not.toBeDisplayed()
+    }
 }

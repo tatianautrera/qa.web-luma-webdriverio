@@ -39,7 +39,7 @@ describe('Cadastro de usuarios', () => {
     it('should return erro without required fields', async () => {
         for (let i = 0; i < users.InputWithOutFields.length; i++) {
             await RegisterUserPage.registerUser(users.InputWithOutFields[i])
-            await expect(HomePage.messageError).toHaveText(users.InputWithOutFields[i].message)
+            await RegisterUserPage.assertTex(HomePage.messageError, users.InputWithOutFields[i].message)
             await RegisterUserPage.accessRegisterPage()
         }
     })
@@ -67,6 +67,6 @@ describe('Cadastro de usuarios', () => {
         await RegisterUserPage.registerUser(user)
         await RegisterUserPage.accessRegisterPage()
         await RegisterUserPage.registerUser(user)
-        await expect(HomePage.messageError).toHaveText("Este email já está sendo usado")
+        await RegisterUserPage.assertTex(HomePage.messageError, "Este email já está sendo usado")
     })
 })

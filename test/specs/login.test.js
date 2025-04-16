@@ -19,8 +19,8 @@ describe('Login', () => {
             administrator: false
         } 
         await LoginPage.loginAndCreateUser(user)
-        await expect(HomePage.btnLogout).toBeDisplayed()
-        await expect(HomePage.linkReport).not.toBeDisplayed()
+        await LoginPage.assertToBeDisplayed(HomePage.btnLogout)
+        await LoginPage.assertNotToBeDisplayed(HomePage.linkReport)
     })
 
 
@@ -32,22 +32,22 @@ describe('Login', () => {
             administrator: true
         }
         await LoginPage.loginAndCreateUser(user)
-        await expect(HomePage.btnLogout).toBeDisplayed()
-        await expect(HomePage.linkReport).toBeDisplayed()
-        await expect(HomePage.txtUserName).toHaveText(expect.stringContaining(user.name))
+        await LoginPage.assertToBeDisplayed(HomePage.btnLogout)
+        await LoginPage.assertToBeDisplayed(HomePage.linkReport)
+        await LoginPage.assertContainsText(HomePage.txtUserName,user.name)
     })
 
     it('should return error when try login invalid fields fields', async () => {
         for (let i = 0; i < data.loginInvalidFields.length; i++) {
             await LoginPage.login(data.loginInvalidFields[i])
-            await expect(LoginPage.messageError).toHaveText(data.loginInvalidFields[i].message)
+            await LoginPage.assertTex(LoginPage.messageError, data.loginInvalidFields[i].message)
             await LoginPage.open()
         }
     })
 
     it('should access register page sucess', async () => {
         await RegisterUserPage.accessRegisterPage()
-        await expect(LoginPage.titlePage).toHaveText('Cadastro')
+        await LoginPage.assertTex(LoginPage.titlePage, 'Cadastro')
     })
 
     it('should return error try login with incorrect password', async () => {
@@ -62,6 +62,6 @@ describe('Login', () => {
         user.password = "1234567"
         await LoginPage.open()
         await LoginPage.login(user)
-        await expect(LoginPage.messageError).toHaveText("Email e/ou senha inválidos")
+        await LoginPage.assertTex(LoginPage.messageError, "Email e/ou senha inválidos")
     })
 })

@@ -32,7 +32,9 @@ class HomePage extends Page {
         await browser.url('/admin/cadastrarprodutos')
     }
 
-
+    async accessRegisterProductPageByMenu(){
+        await this.menuNewProduct.click()
+    }
 }
 
 export default new HomePage();
