@@ -23,6 +23,16 @@ class HomePage extends Page {
     get txtUserName () {
         return $('h1');
     }
+
+    get menuNewProduct(){
+        return $('a[data-testid="cadastrar-produtos"]')
+    }
+
+    async accessRegisterProductPage(){
+        await browser.url('/admin/cadastrarprodutos')
+    }
+
+
 }
 
 export default new HomePage();

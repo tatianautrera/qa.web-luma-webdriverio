@@ -6,7 +6,7 @@ import allureReporter from '@wdio/allure-reporter'
 import data from '../data/loginInvalidFields.json'
 import RegisterUserPage from '../pageobjects/registerUser.page.js'
 
-describe('Cadastro de usuarios', () => {
+describe('Login', () => {
     beforeEach(async () => {
         await LoginPage.open()
     })

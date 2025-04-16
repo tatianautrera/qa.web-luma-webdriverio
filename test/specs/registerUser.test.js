@@ -1,5 +1,4 @@
 import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page.js'
 import HomePage from '../pageobjects/home.page.js'
 import RegisterUserPage from '../pageobjects/registerUser.page.js'
 import faker from 'faker-br'
@@ -55,5 +54,19 @@ describe('Cadastro de usuarios', () => {
         await RegisterUserPage.registerUser(user)
          const validationMessage = await browser.execute((el) => el.validationMessage, await registerUserPage.inputEmail)
         expect(validationMessage).toContain('Inclua um "@" no endereço de e-mail.')
+    })
+
+    it('should return error with email already use', async () => {
+        var email = "teste" + faker.internet.email()
+        var user = {
+            name: faker.name.firstName(),
+            email: email,
+            password: "123456",
+            administrator: true
+        }
+        await RegisterUserPage.registerUser(user)
+        await RegisterUserPage.accessRegisterPage()
+        await RegisterUserPage.registerUser(user)
+        await expect(HomePage.messageError).toHaveText("Este email já está sendo usado")
     })
 })

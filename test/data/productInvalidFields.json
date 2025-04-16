@@ -1,0 +1,52 @@
+{
+    "productInvalidFields": [
+        {
+            "name": "",
+            "price": "1",
+            "description": "produto de teste",
+            "amount": "1",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Nome é obrigatório"
+        },
+        {
+            "name": "produto teste1",
+            "price": "",
+            "description": "produto de teste",
+            "amount": "1",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Preco é obrigatório"
+        },
+        {
+            "name": "produto teste26666666666666666666667",
+            "price": "1",
+            "description": "",
+            "amount": "1",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Descricao é obrigatório"
+        },
+        {
+            "name": "produto teste3",
+            "price": "1",
+            "description": "produto de teste",
+            "amount": "",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Quantidade é obrigatório"
+        },
+        {
+            "name": "produto teste3",
+            "price": "1",
+            "description": "produto de teste",
+            "amount": "9007199254740992",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Quantidade não pode ser maior que 9007199254740991"
+        },
+        {
+            "name": "produto teste3",
+            "price": "9007199254740992",
+            "description": "produto de teste",
+            "amount": "9007199254740992",
+            "image": "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp",
+            "message": "Preco não pode ser maior que 9007199254740991"
+        }
+    ]
+}
