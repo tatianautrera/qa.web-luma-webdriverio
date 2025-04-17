@@ -59,6 +59,10 @@ class RegisterProductPage extends Page {
     async assertSearchProduct(name){
         await expect(await this.searchProduct(name)).toBeDisplayed()
     }
+
+    async assertNotFoundSearchProduct(name){
+        await expect(await this.searchProduct(name)).not.toBeDisplayed()
+    }
 }
 
 export default new RegisterProductPage();

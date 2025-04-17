@@ -7,26 +7,18 @@ import RegisterProductPage from '../pageobjects/registerProduct.page.js'
 import LoginPage from '../pageobjects/login.page.js'
 import data from '../data/productInvalidFields.json'
 
-describe('Cadastro de usuarios', () => {
-    var email = "teste" + faker.internet.email()
+describe('Register product', () => {
     before(async () => {
-        await RegisterUserPage.accessRegisterPage()
-        var user = {
-            name: faker.name.firstName(),
-            email: email,
-            password: "123456",
-            administrator: true
-        }
-        await RegisterUserPage.registerUser(user)
+        await RegisterUserPage.registerUserSuccess()
         await HomePage.accessRegisterProductPageByMenu()
     })
 
-    describe('Dado que esteja acesando a tela de cadastro de produtos',()=>{
+    describe('Given i access the page register products',()=>{
     beforeEach(async () => {
         await browser.url('/admin/cadastrarprodutos')
     })
 
-    it('should create a new product with success', async () => {
+    it('When i create a new product, Then should create a new product with success', async () => {
         var product = {
             name: faker.commerce.product(),
             price: 10,
@@ -39,7 +31,7 @@ describe('Cadastro de usuarios', () => {
         await RegisterProductPage.assertTex(RegisterProductPage.titlePage,'Lista dos Produtos')
     })
 
-    it('should create a new product and consult register with success', async () => {
+    it('When i create a new product, Then should create a new product and consult register with success', async () => {
         var product = {
             name: faker.commerce.product(),
             price: 10,
@@ -51,7 +43,7 @@ describe('Cadastro de usuarios', () => {
         await RegisterProductPage.assertSearchProduct(product.name)
     })
 
-    it('should error invalid fields', async () => {
+    it('Give i fill invalid dates, then should error invalid fields', async () => {
         for (let i = 0; i < data.productInvalidFields.length; i++) {
             await RegisterProductPage.registerProduct(data.productInvalidFields[i])
             await RegisterProductPage.assertTex(RegisterProductPage.messageError, data.productInvalidFields[i].message)
@@ -59,7 +51,7 @@ describe('Cadastro de usuarios', () => {
         }
     })
 
-    it('should error register product already name', async () => {
+    it('Give i fill already product name, then should error message', async () => {
         var product = {
             name: faker.commerce.product(),
             price: 10,

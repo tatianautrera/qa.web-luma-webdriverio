@@ -1,6 +1,7 @@
 import { $ } from '@wdio/globals'
 import Page from './basePage.js';
 import LoginPage from './login.page.js';
+import faker from 'faker-br'
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -54,6 +55,16 @@ class RegisterUserPage extends Page {
         await this.open()
         await LoginPage.linkRegisterPage.click()
     }
-}
 
+    async registerUserSuccess(){
+        await this.accessRegisterPage()
+        var user = {
+            name: faker.name.firstName(),
+            email:  "teste" + faker.internet.email(),
+            password: "123456",
+            administrator: true
+        }
+        await this.registerUser(user)
+    }
+}
 export default new RegisterUserPage();
