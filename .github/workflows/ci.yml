@@ -13,10 +13,10 @@ jobs:
             node-version: 18
 
         - name: 🏗️ Install Dependencies
-          run: npx install
+          run: npm install
 
         - name: 🧪 Test
-          run:  npx wdio run ./wdio.conf.js
+          run:  npm wdio run ./wdio.conf.js
 
         - name: 📦 Upload Logs
           uses: actions/upload-artifact@v4
