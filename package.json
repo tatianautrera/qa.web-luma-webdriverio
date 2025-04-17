@@ -1,6 +1,5 @@
 {
   "name": "qa.web-luma-webdriverio",
-  "type": "module",
   "devDependencies": {
     "@wdio/allure-reporter": "^9.12.3",
     "@wdio/cli": "^9.12.4",
