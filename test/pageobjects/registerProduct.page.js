@@ -52,7 +52,7 @@ class RegisterProductPage extends Page {
         await this.inputPrice.setValue(product.price);
         await this.inputDescription.setValue(product.description);
         await this.inputAmount.setValue(product.amount);
-        await this.inputImage.setValue(product.image);
+        await this.inputImage.setValue(remoteFilePath);
 
         await this.btnSubmit.click();
     }
