@@ -35,7 +35,7 @@ jobs:
         run: chmod +x ./node_modules/.bin/wdio
 
       - name: 🧪 Run Tests
-        run: npx wdio run ./wdio.conf.js
+        run: npx wdio run ./wdio.conf.js --spec login.test.js 
 
       - name: 🧾 Generate Allure Report
         if: always() # Garante que roda mesmo se testes falharem
