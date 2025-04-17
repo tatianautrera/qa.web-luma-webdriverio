@@ -53,7 +53,7 @@ describe('Cadastro de usuarios', () => {
         }
         await RegisterUserPage.registerUser(user)
          const validationMessage = await browser.execute((el) => el.validationMessage, await registerUserPage.inputEmail)
-        expect(validationMessage).toContain('Inclua um "@" no endereço de e-mail.')
+        expect(validationMessage).toContain("Please include an '@' in the email address")
     })
 
     it('should return error with email already use', async () => {
