@@ -30,6 +30,7 @@ describe('Register product', () => {
         }
 
         await RegisterProductPage.registerProduct(product)
+        await $('.table-striped').waitForExist()
         await RegisterProductPage.assertTex(RegisterProductPage.titlePage,'Lista dos Produtos')
     })
 
@@ -42,6 +43,7 @@ describe('Register product', () => {
             image: filePath
         }
         await RegisterProductPage.registerProduct(product)
+        await $('.table-striped').waitForExist()
         await RegisterProductPage.assertSearchProduct(product.name)
     })
 
