@@ -18,6 +18,11 @@ jobs:
         - name: 🛠️ Permissões para binários
           run: chmod +x ./node_modules/.bin/wdio
 
+        - name: Set up ChromeDriver
+          uses: anmol098/chromedriver-action@v2
+          with:
+            chromedriver-version: '135.0.7049.84'
+
         - name: 🧪 Test
           run:  npx wdio run ./wdio.conf.js
 
