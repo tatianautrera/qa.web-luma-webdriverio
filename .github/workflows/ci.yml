@@ -18,9 +18,6 @@ jobs:
         - name: 🛠️ Permissões para binários
           run: chmod +x ./node_modules/.bin/wdio
 
-        - name: Set up ChromeDriver
-          uses: webdriverio/setup-chromedriver@v6
-
         - name: 🧪 Test
           run:  npx wdio run ./wdio.conf.js
 
