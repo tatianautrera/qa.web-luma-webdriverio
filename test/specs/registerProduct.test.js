@@ -7,6 +7,7 @@ import RegisterProductPage from '../pageobjects/registerProduct.page.js'
 import LoginPage from '../pageobjects/login.page.js'
 import data from '../data/productInvalidFields.json'
 const path = require('path');
+const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
 
 describe('Register product', () => {
     before(async () => {
@@ -20,7 +21,6 @@ describe('Register product', () => {
     })
 
     it('When i create a new product, Then should create a new product with success', async () => {
-        const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
@@ -34,7 +34,6 @@ describe('Register product', () => {
     })
 
     it('When i create a new product, Then should create a new product and consult register with success', async () => {
-        const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
@@ -48,6 +47,7 @@ describe('Register product', () => {
 
     it('Give i fill invalid dates, then should error invalid fields', async () => {
         for (let i = 0; i < data.productInvalidFields.length; i++) {
+            data.productInvalidFields[i].image = filePath
             await RegisterProductPage.registerProduct(data.productInvalidFields[i])
             await RegisterProductPage.assertTex(RegisterProductPage.messageError, data.productInvalidFields[i].message)
             await HomePage.accessRegisterProductPage()
@@ -55,7 +55,6 @@ describe('Register product', () => {
     })
 
     it('Give i fill already product name, then should error message', async () => {
-        const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
