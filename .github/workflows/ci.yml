@@ -21,6 +21,9 @@ jobs:
         - name: 🧪 Test
           run:  npx wdio run ./wdio.conf.js
 
+        - name: 🔐 Permissão para Allure CLI
+          run: chmod +x ./node_modules/.bin/allure
+
         - name: 🧾 Gerar Allure Report
           if: always() # garante execução mesmo se os testes falharem
           run: npx allure generate allure-results --clean -o allure-report
