@@ -13,7 +13,7 @@ jobs:
             node-version: 18
 
         - name: 🏗️ Install Dependencies
-          run: npm install
+          run: npx install
 
         - name: 🧪 Test
           run:  npx wdio run ./wdio.conf.js
