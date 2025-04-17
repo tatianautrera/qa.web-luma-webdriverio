@@ -26,9 +26,9 @@ jobs:
 
       - name: 📥 Install Allure CLI (Java binary)
         run: |
-          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.24.1.tgz
-          tar -xvzf allure-2.24.1.tgz
-          sudo mv allure-2.24.1 /opt/allure
+          wget https://github.com/allure-framework/allure2/releases/download/2.33.0/allure-2.33.0.tgz
+          tar -xvzf allure-2.33.0.tgz
+          sudo mv allure-2.33.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: 🛠️ Permissão para binários
