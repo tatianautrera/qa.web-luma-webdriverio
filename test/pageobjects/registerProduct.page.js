@@ -47,6 +47,7 @@ class RegisterProductPage extends Page {
     }
    
     async registerProduct(product) {
+        const remoteFilePath = await browser.uploadFile(product.image);
         await this.inputName.setValue(product.name);
         await this.inputPrice.setValue(product.price);
         await this.inputDescription.setValue(product.description);

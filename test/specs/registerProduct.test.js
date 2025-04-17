@@ -6,6 +6,7 @@ import allureReporter from '@wdio/allure-reporter'
 import RegisterProductPage from '../pageobjects/registerProduct.page.js'
 import LoginPage from '../pageobjects/login.page.js'
 import data from '../data/productInvalidFields.json'
+const path = require('path');
 
 describe('Register product', () => {
     before(async () => {
@@ -19,12 +20,13 @@ describe('Register product', () => {
     })
 
     it('When i create a new product, Then should create a new product with success', async () => {
+        const filePath = path.resolve(__dirname, 'test/data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
             description: "123456",
             amount: 1,
-            image: "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp"
+            image: filePath
         }
 
         await RegisterProductPage.registerProduct(product)
@@ -32,12 +34,13 @@ describe('Register product', () => {
     })
 
     it('When i create a new product, Then should create a new product and consult register with success', async () => {
+        const filePath = path.resolve(__dirname, 'test/data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
             description: "123456",
             amount: 1,
-            image: "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp"
+            image: filePath
         }
         await RegisterProductPage.registerProduct(product)
         await RegisterProductPage.assertSearchProduct(product.name)
@@ -52,12 +55,13 @@ describe('Register product', () => {
     })
 
     it('Give i fill already product name, then should error message', async () => {
+        const filePath = path.resolve(__dirname, 'test/data/arcondicionado.webp');
         var product = {
             name: faker.commerce.product(),
             price: 10,
             description: "123456",
             amount: 1,
-            image: "C:\\estudos\\qa.web-luma-webdriverio\\test\\data\\arcondicionado.webp"
+            image: filePath
         }
             await RegisterProductPage.registerProduct(product)
             await HomePage.accessRegisterProductPage()
