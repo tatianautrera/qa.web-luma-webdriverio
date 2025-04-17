@@ -287,14 +287,14 @@ export const config = {
         const generation = allure(['generate', 'allure-results', '--clean'])
         return new Promise((resolve, reject) => {
             const generationTimeout = setTimeout(
-                () => reject(reportError),
+                () => reject(new Error('Falha ao gerar o relatório Allure')),
                 5000)
 
             generation.on('exit', function (exitCode) {
                 clearTimeout(generationTimeout)
 
                 if (exitCode !== 0) {
-                    return reject(reportError)
+                    return reject(new Error('Falha ao gerar o relatório Allure'))
                 }
 
                 console.log('Allure report successfully generated')
