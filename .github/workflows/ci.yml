@@ -26,7 +26,7 @@ jobs:
 
         - name: 🧾 Gerar Allure Report
           if: always() # garante execução mesmo se os testes falharem
-          run: npx allure generate allure-results --clean -o allure-report
+          run: npx allure-commandline generate allure-results --clean -o allure-report
 
         - name: 📤 Upload Allure Report
           if: always()
