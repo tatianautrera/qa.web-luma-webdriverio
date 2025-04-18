@@ -24,7 +24,7 @@ describe('Delete Product', () => {
             await RegisterProductPage.registerProduct(product)
 
         })
-        it.skip('When i delete a product, then the product should be deleted', async () => {
+        it('When i delete a product, then the product should be deleted', async () => {
             console.log("produto nome", product.name)
             await browser.url('/admin/listarprodutos')
             await DeleteProductPage.deleteProduct(product.name)
