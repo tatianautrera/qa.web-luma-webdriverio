@@ -44,7 +44,7 @@ describe('Register product', () => {
             image: filePath
         }
         await RegisterProductPage.registerProduct(product)
-        await $('.table-striped').waitForExist()
+        await HomePage.accessRegisterProductPage()
         await RegisterProductPage.assertSearchProduct(product.name)
     })
 
