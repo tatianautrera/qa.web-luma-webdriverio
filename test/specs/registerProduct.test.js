@@ -19,21 +19,6 @@ describe('Register product', () => {
         await browser.url('/admin/cadastrarprodutos')
     })
 
-    it('When i create a new product, Then should create a new product with success', async () => {
-        const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
-        var product = {
-            name: faker.commerce.product(),
-            price: 10,
-            description: "123456",
-            amount: 1,
-            image: filePath
-        }
-
-        await RegisterProductPage.registerProduct(product)
-        await $('.table-striped').waitForExist()
-        await RegisterProductPage.assertTex(RegisterProductPage.titlePage,'Lista dos Produtos')
-    })
-
     it('When i create a new product, Then should create a new product and consult register with success', async () => {
         const filePath = path.resolve(__dirname, '../data/arcondicionado.webp');
         var product = {
