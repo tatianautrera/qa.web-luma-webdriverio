@@ -1,7 +1,5 @@
 import { $ } from '@wdio/globals'
 import Page from './basePage.js';
-import LoginPage from './login.page.js';
-import HomePage from './home.page.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -42,6 +40,10 @@ class RegisterProductPage extends Page {
         return $('.alert-secondary span:nth-child(2)')
     }
 
+    get table(){
+        return $('table')
+    }
+
     searchProduct(name){
         return $(`//td[contains(., "${name}")]`)
     }
@@ -63,6 +65,10 @@ class RegisterProductPage extends Page {
 
     async assertNotFoundSearchProduct(name){
         await expect(await this.searchProduct(name)).not.toBeDisplayed()
+    }
+
+    async accessListProduct(){
+        await browser.url('/admin/listarprodutos')
     }
 }
 

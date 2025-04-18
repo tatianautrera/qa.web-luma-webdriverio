@@ -29,7 +29,8 @@ describe('Register product', () => {
             image: filePath
         }
         await RegisterProductPage.registerProduct(product)
-        await HomePage.accessRegisterProductPage()
+        await RegisterProductPage.accessListProduct()
+        await RegisterProductPage.table.waitForExist()
         await RegisterProductPage.assertSearchProduct(product.name)
     })
 
